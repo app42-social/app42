@@ -5,7 +5,7 @@ set -ex
 apt-get update
 apt-get install -y clang cmake ninja-build pkg-config curl unzip zip xz-utils libglu1-mesa libgtk-3-dev mesa-utils
 
-export $FLUTTER_HOME="/home/vscode/.local/flutter"
+export FLUTTER_HOME="/home/vscode/.local/flutter"
 
 # Install Flutter
 if [ ! -d $FLUTTER_HOME ]; then
