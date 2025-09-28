@@ -18,7 +18,7 @@ if [ ! -d $FLUTTER_HOME ]; then
     sudo chown -R vscode:vscode /home/vscode/.local
 fi
 
-export ANDROID_SDK_ROOT="/home/vscode/.local/android-sdk/"
+export ANDROID_SDK_ROOT="/home/vscode/.local/android-sdk"
 export ANDROID_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-linux-13114758_latest.zip"
 
 # Android SDK (command line tools only)
@@ -44,7 +44,7 @@ if ! command -v google-chrome &> /dev/null; then
     apt-get install -y google-chrome-stable
 fi
 
-export PATH="$ANDROID_SDK_ROOT/latest/bin":"$PATH"
+export PATH="$ANDROID_SDK_ROOT/tools/bin":"$PATH"
 export JAVA_HOME="/usr/local/sdkman/candidates/java/current/"
 
 # Install SDK packages
