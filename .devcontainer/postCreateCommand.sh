@@ -3,7 +3,7 @@ set -ex
 
 # Install dependencies
 apt-get update
-apt-get install -y curl unzip zip xz-utils libglu1-mesa
+apt-get install -y clang cmake ninja-build pkg-config curl unzip zip xz-utils libglu1-mesa
 
 # Install Flutter
 if [ ! -d /home/vscode/.local/flutter ]; then
