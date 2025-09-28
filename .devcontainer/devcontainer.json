@@ -16,14 +16,11 @@
     "ghcr.io/devcontainers-extra/features/direnv:1": {}
   },
 
-  "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+  "postCreateCommand": "sudo bash .devcontainer/postCreateCommand.sh",
 
   "customizations": {
     "vscode": {
-      "extensions": [
-        "dart-code.flutter",
-        "dart-code.dart-code"
-      ],
+      "extensions": ["dart-code.flutter", "dart-code.dart-code"],
       "settings": {
         "dart.flutterSdkPath": "/usr/local/flutter/bin/flutter"
       }
