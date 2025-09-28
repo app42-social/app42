@@ -47,4 +47,4 @@ yes | sdkmanager --licenses --sdk_root=$ANDROID_SDK_ROOT
 sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-34"
 
 # Run Flutter doctor
-sudo -u vscode /home/vscode/.local/bin/flutter doctor
+sudo -u vscode /home/vscode/.local/bin/flutter doctor | yes
