@@ -13,7 +13,7 @@ if [ ! -d /home/vscode/.local/flutter ]; then
     ln -sf /home/vscode/.local/flutter/bin/flutter /home/vscode/.local/bin/
     ln -sf /home/vscode/.local/flutter/bin/flutter-dev /home/vscode/.local/bin/
     ln -sf /home/vscode/.local/flutter/bin/dart /home/vscode/.local/bin/   
-    chown -R vscode:vscode /home/vscode/.local
+    sudo chown -R vscode:vscode /home/vscode/.local
 fi
 
 # Android SDK (command line tools only)
