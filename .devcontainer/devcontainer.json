@@ -1,0 +1,26 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "App42 DevContainer",
+  "image": "mcr.microsoft.com/devcontainers/base",
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dart-code.flutter",
+        "dart-code.dart-code"
+      ],
+      "settings": {
+        "dart.flutterSdkPath": "/usr/local/flutter/bin/flutter"
+      }
+    }
+  }
+}
