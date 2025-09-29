@@ -1,0 +1,52 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: CloudFormation template for app42.
+
+Parameters:
+  HostedZoneId:
+    Type: String
+    Default: Z01244844T5VMS5KSJOQ
+    Description: The Route53 Hosted Zone ID for the domain.
+
+  DomainName:
+    Type: String
+    Default: env.app42.social
+    Description: The domain name for the website (e.g., example.com).
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref DomainName
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+
+  S3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: "*"
+            Action: s3:GetObject
+            Resource: !Sub arn:aws:s3:::${DomainName}/*
+
+
+Outputs:
+  WebsiteURL:
+    Description: URL of the static website
+    Value: !GetAtt S3Bucket.WebsiteURL
+  BucketName:
+    Description: Name of the S3 bucket
+    Value: !Ref S3Bucket
